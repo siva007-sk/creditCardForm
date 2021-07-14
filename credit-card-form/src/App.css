@@ -1,38 +1,114 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  background: #7474bf;
+  background: -webkit-gradient(linear, left top, right top, from(#348ac7), to(#7474bf));
+  background: linear-gradient(to right, #348ac7, #7474bf);
   min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.card {
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  background: #fff;
+  border-radius: 10px;
+  padding: 2em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card:hover {
+  -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
+
+.form-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-top: 10em;
+}
+
+.form-container label {
+  margin-bottom: 1em;
+}
+
+.form-container input {
+  width: 100%;
+  height: 2.5em;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #b4b0b0;
+  padding: 1em;
+  font-size: 1em;
+}
+
+.form-container input:active {
+  border-color: #2eeef5;
+}
+
+.form-container input:focus {
+  border-color: #2eeef5;
+}
+
+.form-container span {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: 'expirationDate cvv';
+  grid-gap: 2em;
+}
+
+.expiration-date-conatiner {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: expirationDate;
+}
+
+.expiration-date-conatiner select {
+  width: 45%;
+  height: 2.5em;
+  border-radius: 5px;
+  position: relative;
+  outline: none;
+  border: 1px solid #b4b0b0;
+  padding: 0.5em;
+  font-size: 1em;
+}
+
+.expiration-date-conatiner select:active {
+  border-color: #2eeef5;
+}
+
+.expiration-date-conatiner select:focus {
+  border-color: #2eeef5;
+}
+
+.cvv-container {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: cvv;
+}
+
+.btn-active {
+  height: 2em;
+  background: #3a4cec;
+  border: 1px solid #3a4cec;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  font-size: 1.2em;
+  color: #fff;
+}
+/*# sourceMappingURL=App.css.map */

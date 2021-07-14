@@ -1,0 +1,69 @@
+.App 
+  background: #7474bf
+  background: linear-gradient(to right, #348ac7, #7474bf)
+  min-height: 100vh
+  display: flex
+  justify-content: center
+  align-items: center
+
+.card 
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2)
+  transition: 0.3s
+  background: #fff
+  border-radius: 10px
+  padding: 2em
+  &:hover
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2)
+
+
+.form-container 
+  display: flex
+  flex-direction: column
+  padding-top: 10em
+  label
+    margin-bottom: 1em
+  input
+    width: 100%
+    height: 2.5em
+    border-radius: 5px
+    outline: none
+    border: 1px solid #b4b0b0
+    padding: 1em
+    font-size: 1em
+    &:active
+      border-color: #2eeef5
+    &:focus
+      border-color: #2eeef5
+  span
+    display: grid
+    grid-template-columns: 1fr 1fr
+    grid-template-areas: 'expirationDate cvv'
+    grid-gap: 2em
+.expiration-date-conatiner
+  grid-area: expirationDate
+  select
+    width: 45%
+    height: 2.5em
+    border-radius: 5px
+    position: relative
+    outline: none
+    border: 1px solid #b4b0b0
+    padding: 0.5em
+    font-size: 1em
+    &:active
+      border-color: #2eeef5
+    &:focus
+      border-color: #2eeef5
+    
+  
+.cvv-container
+  grid-area: cvv
+
+.btn-active
+  height: 2em
+  background: #3a4cec
+  border: 1px solid #3a4cec
+  border-radius: 5px
+  letter-spacing: 1px
+  font-size: 1.2em
+  color: #fff
