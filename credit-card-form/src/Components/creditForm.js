@@ -1,3 +1,5 @@
+import Card from "./card";
+
 function CreditForm() {
   const monthList = [
     "01",
@@ -28,52 +30,56 @@ function CreditForm() {
     "2030",
   ];
   return (
-    <div className="form-container card">
-      <label>
-        Card Number
-        <input type="text" />
-      </label>
-      <label>
-        Card Holders
-        <input type="text" />
-      </label>
-      <span>
-        <label className="expiration-date-conatiner">
-          Experiation Date
-          <div>
-            <select style={{ marginRight: "1em" }}>
-              <option value="00" selected hidden disabled>
-                Month
-              </option>
-              {monthList.map((month) => {
-                return (
-                  <option value={month} key={month}>
-                    {month}
-                  </option>
-                );
-              })}
-            </select>
-            <select>
-              <option value="00" selected hidden>
-                Year
-              </option>
-              {yearList.map((year) => {
-                return (
-                  <option value={year} key={year}>
-                    {year}
-                  </option>
-                );
-              })}
-            </select>
-          </div>
-        </label>
-        <label className="cvv-container">
-          CVV
+    <>
+     
+      <div className="form-container card">
+      <Card />
+        <label>
+          Card Number
           <input type="text" />
         </label>
-      </span>
-      <button className="btn-active">Submit</button>
-    </div>
+        <label>
+          Card Holders
+          <input type="text" />
+        </label>
+        <span>
+          <label className="expiration-date-conatiner">
+            Experiation Date
+            <div>
+              <select style={{ marginRight: "1em" }}>
+                <option value="00" selected hidden disabled>
+                  Month
+                </option>
+                {monthList.map((month) => {
+                  return (
+                    <option value={month} key={month}>
+                      {month}
+                    </option>
+                  );
+                })}
+              </select>
+              <select>
+                <option value="00" selected hidden>
+                  Year
+                </option>
+                {yearList.map((year) => {
+                  return (
+                    <option value={year} key={year}>
+                      {year}
+                    </option>
+                  );
+                })}
+              </select>
+            </div>
+          </label>
+          <label className="cvv-container">
+            CVV
+            <input type="text" />
+          </label>
+        </span>
+        <button className="btn-active">Submit</button>
+      </div>
+    </>
   );
 }
 
