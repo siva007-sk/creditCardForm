@@ -31,7 +31,7 @@ class CreditForm extends React.Component {
     "11",
     "12",
   ];
-  
+
   // year list to display in the select dropdown
   yearList = [
     "2019",
@@ -119,6 +119,20 @@ class CreditForm extends React.Component {
       });
     }
   };
+  validate() {
+    if (
+      this.state.cardName &&
+      this.state.cardNumber &&
+      this.state.cardNumber.length === 16 &&
+      this.state.cvv &&
+      this.state.cvv.length === 3 &&
+      this.state.expiryMonth !== "MM" &&
+      this.state.expiryYear !== "YYYY"
+    ) {
+      return false;
+    }
+    return true;
+  }
 
   render() {
     return (
@@ -204,7 +218,9 @@ class CreditForm extends React.Component {
               />
             </label>
           </span>
-          <button className="btn-active">Submit</button>
+          <button className="btn-active" disabled={this.validate()}>
+            Submit
+          </button>
         </div>
       </>
     );

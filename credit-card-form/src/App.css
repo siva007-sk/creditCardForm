@@ -116,6 +116,11 @@
   color: #fff;
 }
 
+.btn-active:disabled {
+  background: #a1a8eb;
+  border-color: #a1a8eb;
+}
+
 .card-container {
   position: absolute;
   z-index: 3;
