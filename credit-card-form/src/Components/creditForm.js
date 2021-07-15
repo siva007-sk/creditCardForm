@@ -13,8 +13,10 @@ class CreditForm extends React.Component {
       cvv: "",
       cardType: "",
       show: "front",
+      focussed: "",
     };
   }
+  // month array to show in the select dropdown
   monthList = [
     "01",
     "02",
@@ -29,6 +31,8 @@ class CreditForm extends React.Component {
     "11",
     "12",
   ];
+  
+  // year list to display in the select dropdown
   yearList = [
     "2019",
     "2020",
@@ -43,6 +47,8 @@ class CreditForm extends React.Component {
     "2029",
     "2030",
   ];
+
+  // event handler to handle change in values of the form fields
   handleChange = (event) => {
     const { name, value } = event.target;
     if (name === "cardNumber") {
@@ -51,7 +57,7 @@ class CreditForm extends React.Component {
           return {
             ...prevState,
             [name]: value,
-            ["cardType"]: getCardType(value),
+            cardType: getCardType(value),
           };
         });
       }
@@ -73,21 +79,45 @@ class CreditForm extends React.Component {
       });
     }
   };
-  handleCvvFocus = (event) => {
-    this.setState((prevState) => {
-      return {
-        ...prevState,
-        ["show"]: "back",
-      };
-    });
+
+  // event handler to handle change in focus of the form fields
+  handleFocus = (event) => {
+    const { name } = event.target;
+    if (name === "cvv") {
+      this.setState((prevState) => {
+        return {
+          ...prevState,
+          show: "back",
+        };
+      });
+    } else {
+      this.setState((prevState) => {
+        return {
+          ...prevState,
+          focussed: name,
+        };
+      });
+    }
   };
-  handleCvvBlur = (event) => {
-    this.setState((prevState) => {
-      return {
-        ...prevState,
-        ["show"]: "front",
-      };
-    });
+
+  // event handler to handle blur events on form fields
+  handleBlur = (event) => {
+    const { name } = event.target;
+    if (name === "cvv") {
+      this.setState((prevState) => {
+        return {
+          ...prevState,
+          show: "front",
+        };
+      });
+    } else {
+      this.setState((prevState) => {
+        return {
+          ...prevState,
+          focussed: "",
+        };
+      });
+    }
   };
 
   render() {
@@ -102,6 +132,8 @@ class CreditForm extends React.Component {
               name="cardNumber"
               value={this.state.cardNumber}
               onChange={this.handleChange}
+              onFocus={this.handleFocus}
+              onBlur={this.handleBlur}
               maxLength="16"
             />
           </label>
@@ -112,6 +144,8 @@ class CreditForm extends React.Component {
               name="cardName"
               value={this.state.cardName}
               onChange={this.handleChange}
+              onFocus={this.handleFocus}
+              onBlur={this.handleBlur}
             />
           </label>
           <span>
@@ -123,6 +157,8 @@ class CreditForm extends React.Component {
                   name="expiryMonth"
                   value={this.state.expiryMonth}
                   onChange={this.handleChange}
+                  onFocus={this.handleFocus}
+                  onBlur={this.handleBlur}
                 >
                   <option value="MM" hidden disabled>
                     Month
@@ -139,6 +175,8 @@ class CreditForm extends React.Component {
                   name="expiryYear"
                   value={this.state.expiryYear}
                   onChange={this.handleChange}
+                  onFocus={this.handleFocus}
+                  onBlur={this.handleBlur}
                 >
                   <option value="YYYY" disabled hidden>
                     Year
@@ -161,8 +199,8 @@ class CreditForm extends React.Component {
                 value={this.state.cvv}
                 onChange={this.handleChange}
                 maxLength={DEFAULT_CVC_LENGTH}
-                onFocus={this.handleCvvFocus}
-                onBlur={this.handleCvvBlur}
+                onFocus={this.handleFocus}
+                onBlur={this.handleBlur}
               />
             </label>
           </span>
