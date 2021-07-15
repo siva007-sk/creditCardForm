@@ -38,8 +38,9 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: 10em 2em 2em 2em;
-  margin-top: 10em;
+  padding: 8em 2em 2em 2em;
+  width: 30%;
+  margin-top: 8em;
 }
 
 .form-container label {
@@ -67,15 +68,16 @@
 .form-container span {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
-      grid-template-areas: 'expirationDate cvv';
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-areas: 'expirationDate expirationDate cvv';
   grid-gap: 2em;
 }
 
 .expiration-date-conatiner {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
   grid-area: expirationDate;
 }
 
@@ -100,7 +102,7 @@
 
 .cvv-container {
   -ms-grid-row: 1;
-  -ms-grid-column: 2;
+  -ms-grid-column: 3;
   grid-area: cvv;
 }
 
@@ -199,5 +201,24 @@
 
 .row {
   margin-bottom: 1em;
+}
+
+.balck-strip {
+  background: #000;
+  height: 50px;
+  margin: 0px -5.5%;
+}
+
+.cvv-label {
+  float: right;
+  color: #fff;
+  margin-bottom: 0em !important;
+  padding-right: 12;
+}
+
+.card-logo-alt {
+  height: 30px;
+  float: right;
+  opacity: 0.8;
 }
 /*# sourceMappingURL=App.css.map */
